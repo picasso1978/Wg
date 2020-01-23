@@ -53,7 +53,7 @@ exports.loadServerConfig = cb => {
 						public_key: "",
 						ip_address: network_ip,
 						virtual_ip_address: "10.10.50.1",
-						cidr: "20",
+						cidr: "24",
 						virtual_ip6_address: "fd42:10:50::1",
 						cidr6: "64",
 						port: "65011",
@@ -127,6 +127,8 @@ exports.saveWireguardConfig = (server_config, cb) => {
 	const config = nunjucks.render("templates/config_server.njk", {
 		virtual_ip_address: server_config.virtual_ip_address,
 		cidr: server_config.cidr,
+		virtual_ip6_address: server_config.virtual_ip6_address,
+		cidr6: server_config.cidr6,
 		private_key: server_config.private_key,
 		port: server_config.port,
 		network_adapter: server_config.network_adapter,
